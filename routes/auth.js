@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../db");
 
 router.post("/login", (req, res) => {
+  res.send({message:"Login working"});
   const studentId = req.body.studentId.trim().toUpperCase();
   const password = req.body.password.trim();
 
