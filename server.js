@@ -1,5 +1,5 @@
 console.log("correct back file");
-
+const db = require("./db.js")
 const express = require("express");
 const cors = require("cors");
 
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.use("/api/auth", require("./routes/auth"));
+app.use("/api/auth", authRoutes);
 app.use("/api/questions", questionRoutes);
 app.use("/api/results", resultRoutes);
 app.get("/test", (req, res) => {
@@ -35,8 +35,8 @@ app.get("/api/questions", async (req, res) => {
   }
 });
 
-app.listen(9000, () => {
-  console.log("🚀 Server running on http://localhost:9000");
+app.listen(PORT, () => {
+  console.log("🚀 Server running on http://localhost:9000"+PORT);
 });
 app.post("/api/questions/add", async (req, res) => {
   try {
