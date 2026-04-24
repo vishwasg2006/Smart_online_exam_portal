@@ -48,3 +48,7 @@ app.post("/api/questions/add", async (req, res) => {
     res.status(500).json({ success: false });
   }
 });
+
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
