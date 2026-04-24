@@ -12,12 +12,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/auth", authRoutes);
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
+
+app.use("/api/auth", require("./auth"));
 app.use("/api/questions", questionRoutes);
 app.use("/api/results", resultRoutes);
 app.get("/test", (req, res) => {
   res.send("SERVER NEW FILE WORKING ✅");
 });
+
 
 app.get("/api/questions", async (req, res) => {
   try {
@@ -49,6 +55,3 @@ app.post("/api/questions/add", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
-});
