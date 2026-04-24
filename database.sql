@@ -1,0 +1,28 @@
+CREATE DATABASE DBMS;
+USE DBMS;
+
+CREATE TABLE students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  student_id VARCHAR(50) UNIQUE,
+  name VARCHAR(100),
+  password VARCHAR(100)
+);
+
+CREATE TABLE questions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  question TEXT,
+  option1 VARCHAR(255),
+  option2 VARCHAR(255),
+  option3 VARCHAR(255),
+  option4 VARCHAR(255),
+  answer INT
+);
+
+CREATE TABLE results (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  student_id VARCHAR(50),
+  subject VARCHAR(100),
+  score INT,
+  total INT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
